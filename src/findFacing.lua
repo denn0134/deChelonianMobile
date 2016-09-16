@@ -237,4 +237,4 @@ end--end searchLevel
 
 tryChangeLevel(findFacing_Level, 0)
 
-Location.f = findFacing_Facing
+Location.currentLocation.f = findFacing_Facing
