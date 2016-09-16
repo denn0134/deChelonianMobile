@@ -32,16 +32,16 @@ function calcFacing(dx, dz, turn, reverse)
   if dx == 0 then
     --either north or south
     if dz > 0 then
-      findFacing_Facing = "north"
+      findFacing_Facing = Location.NORTH
     else
-      findFacing_Facing = "south"
+      findFacing_Facing = Location.SOUTH
     end
   else
     --either east or west
     if dx > 0 then
-      findFacing_Facing  = "west"
+      findFacing_Facing  = Location.WEST
     else
-      findFacing_Facing = "east"
+      findFacing_Facing = Location.EAST
     end
   end--end if dx/dz
 end--end calcFacing()
@@ -219,9 +219,10 @@ function nextLevel()
 end--end nextLevel()
 
 
-sleep(5)
+--main program
+os.loadAPI("Location")
 
-findFacing_Facing = ""
+findFacing_Facing = -1
 findFacing_Level = 0
 findFacing_CanGoUp = true
 findFacing_CanGoDown = true
@@ -236,4 +237,4 @@ end--end searchLevel
 
 tryChangeLevel(findFacing_Level, 0)
 
-shell.run("send", findFacing_Facing)
+Location.f = findFacing_Facing
